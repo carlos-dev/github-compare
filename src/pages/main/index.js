@@ -14,6 +14,7 @@ export default class Main extends Component {
     loading: false,
     repositoryError: false,
     repositoryInput: '',
+    repositoryKey: 0,
     repositories: [
 
     ]
@@ -32,8 +33,12 @@ export default class Main extends Component {
       this.setState({
         repositoryInput: '',
         repositories: [...this.state.repositories, repository],
-        repositoryError: false
+        repositoryError: false,
+        repositoryKey: ++this.state.repositoryKey
       })
+
+      localStorage.setItem(this.state.repositoryKey, JSON.stringify(repository));
+
     } catch (error) {
       this.setState({repositoryError: true})
       console.log(error)

@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { Repository } from './styles';
 
 const CompareList = ({ repositories }) => (
+  
   <Container>
     { repositories.map(repository => {
       return (
@@ -29,6 +30,9 @@ const CompareList = ({ repositories }) => (
               {repository.lastCommit} <small>last commit</small>
             </li>
           </ul>
+
+          <button>Atualizar</button>
+          <button>Excluir</button>
         </Repository>
       )
     }) }
